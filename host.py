@@ -43,21 +43,21 @@ def specific_data():
     cur = conn.cursor()
     filter_by = []
     if 'published' in request.args:
-        query += 'published=? AND'
+        query += ' published=? AND'
         filter_by.append(published)
     elif 'author' in request.args:
-        query += 'author=? AND'
+        query += ' author=? AND'
         filter_by.append(author)
     elif 'title' in request.args:
-        query += 'title=? AND'
+        query += ' title=? AND'
         filter_by.append(title)
     elif 'id' in request.args:
-        query += 'id=? AND'
+        query += ' id=? AND'
         filter_by.append(id)
     else:
         return 'Error...Result not found'
     query = query[:-4] + ';'
-    result = cur.execute(query,filter_by).fetchall()
+    result = cur.execute(query, filter_by).fetchall()
     res_dict = dict_factory(result)
     return jsonify(res_dict)
 
