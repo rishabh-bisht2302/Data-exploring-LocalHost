@@ -26,6 +26,10 @@ def dict_factory(list_of_tuple):
         lst.append(d)
     return lst
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return "<h1>404</h1><p>The resource could not be found.</p>", 404
+    
 @app.route('/v1/resource',methods=['GET'])
 def specific_data():
     query_parameters = request.args
