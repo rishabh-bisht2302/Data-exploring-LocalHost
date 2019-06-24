@@ -18,10 +18,10 @@ def dict_factory(list_of_tuple):
     lst= []
     for book in list_of_tuple:
         d = {}
-        d['id'] = row[0]
-        d['published'] = row[1]
-        d['author'] = row[2]
-        d['title'] = row[3]
-        d['first_sentence'] = row[4]
-        l.append(d)
-    return l
+        d['id'] = book[0]
+        d['published'] = book[1]
+        d['author'] = book[2]
+        d['title'] = book[3]
+        d['first_sentence'] = book[4]
+        lst.append(d)
+    return lst
