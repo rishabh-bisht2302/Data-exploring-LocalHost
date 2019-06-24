@@ -6,3 +6,27 @@ def home():
 url --> localhost:5000
 response --> Home page with text "WELCOME TO BOOKS EXPLORING WORLD"
 
+## Display all data
+
+@app.route('/v1/resource/all',methods=['GET'])
+def all():
+    conn = sqlite3.connect('books.db')
+    cur = conn.cursor()
+    result = cur.execute('SELECT * FROM books;').fetchall()
+    res_dict = dict_factory(result)
+    return jsonify(res_dict)
+
+def dict_factory(list_of_tuple):
+    lst= []
+    for book in list_of_tuple:
+        d = {}
+        d['id'] = book[0]
+        d['published'] = book[1]
+        d['author'] = book[2]
+        d['title'] = book[3]
+        d['first_sentence'] = book[4]
+        lst.append(d)
+    return lst
+
+Url --> localhost:5000/v1/resource/all
+response --> prints all rows of database
