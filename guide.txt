@@ -31,8 +31,11 @@ def dict_factory(list_of_tuple):
 Url --> localhost:5000/v1/resource/all
 <<<<<<< Updated upstream
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 response --> prints all rows of database
 =======
+=======
+>>>>>>> Stashed changes
 =======
 >>>>>>> Stashed changes
 response --> prints all rows of database
@@ -72,8 +75,18 @@ def specific_data():
 
 url--> localhost:5000/v1/resource/books?id=<id>&title=<title>&author=<author>&published=<published>
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 response --> prints all filtered data
 >>>>>>> Stashed changes
 =======
 response --> prints all filtered data
+>>>>>>> Stashed changes
+=======
+response --> prints all filtered data
+
+## Error handling
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return "<h1>404</h1><p>The resource could not be found.</p>", 404
 >>>>>>> Stashed changes
