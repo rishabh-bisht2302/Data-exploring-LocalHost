@@ -6,7 +6,7 @@ app = Flask(__name__)
 def home():
     return "WELCOME TO BOOKS EXPLORING WORLD"
 
-@app.route('/v1/resource/all',methods=['GET'])
+@app.route('/v1/resource/books/all',methods=['GET'])
 def all():
     conn = sqlite3.connect('books.db')
     cur = conn.cursor()
@@ -30,7 +30,7 @@ def dict_factory(list_of_tuple):
 def page_not_found(e):
     return "<h1>404</h1><p>The resource could not be found.</p>", 404
     
-@app.route('/v1/resource',methods=['GET'])
+@app.route('/v1/resource/books',methods=['GET'])
 def specific_data():
     query_parameters = request.args
 
